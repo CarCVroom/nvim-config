@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
 	  end
   })
 
-  use{'nvim-treesitter/nvim-treesitter', branch = "master", run =  ':TSUpdate' }
+  use{'nvim-treesitter/nvim-treesitter', branch = "main", run =  ':TSUpdate' }
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')

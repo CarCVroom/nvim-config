@@ -1,7 +1,11 @@
 require("theprimagen")
 
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
-vim.lsp.enable("clangd")
+vim.lsp.enable({
+	"clangd",
+	"ts_ls",
+	"pyright"
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
