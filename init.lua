@@ -1,6 +1,7 @@
 require("theprimagen")
 
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
+
 vim.lsp.enable({
 	"clangd",
 	"ts_ls",
