@@ -14,13 +14,13 @@ return require('packer').startup(function(use)
 
   -- Or with configuration
   use({
-	  'projekt0n/github-nvim-theme',
+	  'folke/tokyonight.nvim',
 	  config = function()
-		  require('github-theme').setup({
+		  require('tokyonight').setup({
 			  -- ...
 		  })
 
-		  vim.cmd('colorscheme github_dark_default')
+		  vim.cmd('colorscheme tokyonight-night')
 	  end
   })
 
