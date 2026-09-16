@@ -2,10 +2,30 @@ require("theprimagen")
 
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "lua_ls",
+    },
+})
+
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {
+                    "vim",
+                },
+            },
+        },
+    },
+})
+
 vim.lsp.enable({
 	"clangd",
 	"ts_ls",
-	"pyright"
+	"pyright",
+	"lua_ls"
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {

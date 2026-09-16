@@ -1,33 +1,34 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  use {
-	'nvim-telescope/telescope.nvim', 
-	requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
-  -- Or with configuration
-  use({
-	  'folke/tokyonight.nvim',
-	  config = function()
-		  require('tokyonight').setup({
-			  -- ...
-		  })
+    use({
+        'folke/tokyonight.nvim',
+        config = function()
+            require('tokyonight').setup({})
+            vim.cmd('colorscheme tokyonight-night')
+        end
+    })
 
-		  vim.cmd('colorscheme tokyonight-night')
-	  end
-  })
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        branch = "main",
+        run = ':TSUpdate'
+    }
 
-  use{'nvim-treesitter/nvim-treesitter', branch = "main", run =  ':TSUpdate' }
-  use('theprimeagen/harpoon')
-  use('mbbill/undotree')
-  use('tpope/vim-fugitive')
-  use('neovim/nvim-lspconfig')
-  end)
-  
+    use('theprimeagen/harpoon')
+    use('mbbill/undotree')
+    use('tpope/vim-fugitive')
+
+    -- LSP
+    use('neovim/nvim-lspconfig')
+    use('williamboman/mason.nvim')
+    use('williamboman/mason-lspconfig.nvim')
+end) 
